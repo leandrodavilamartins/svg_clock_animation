@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black;">
+    <div id="container">
+        <svg height="500" width="500" style="background-color: #151718;">
+            <line id="my_svg" stroke="orange" stroke-width="2"/>
+        </svg>
+    </div>
+    
+    <script>
+        let el = document.querySelector("#my_svg");
+        console.log(el);
+
+        let xy1_coordinates=[[250,250],[250,250],[250,250],[250,250]];
+        let xy2_coordinates=[[250,0],[500,250],[250,500],[0,250]];
+
+        let index = 0;
+
+        console.log(xy1_coordinates[0][0]);
+        console.log(xy1_coordinates[0][1]);
+
+        setInterval( () => {
+            el.setAttribute('x1',xy1_coordinates[`${index%4}`][0]);
+            el.setAttribute('y1',xy1_coordinates[`${index%4}`][1]);
+            el.setAttribute('x2',xy2_coordinates[`${index%4}`][0]);
+            el.setAttribute('y2',xy2_coordinates[`${index%4}`][1]);
+            index = index + 1;
+        },1000);
+    </script>
+
+</body>
+</html>
